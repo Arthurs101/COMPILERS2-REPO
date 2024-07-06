@@ -41,10 +41,10 @@ assignment: ID '=' expression
 
 expression: NUMBER                  { $$ = $1; }
     | ID                            { $$ = vars[*$1];      delete $1; }
-    | expression '+' expression     { $$ = $1 + $3; }
-    | expression '-' expression     { $$ = $1 - $3; }
-    | expression '*' expression     { $$ = $1 * $3; }
-    | expression '/' expression     { $$ = $1 / $3; }
+    | expression '+' expression     { $$ = $1 + $3; printf("adding %d,%d\n",$1,$3); }
+    | expression '-' expression     { $$ = $1 - $3; printf("subs %d,%d\n",$1,$3);}
+    | expression '*' expression     { $$ = $1 * $3; printf("multi %d,%d\n",$1,$3);}
+    | expression '/' expression     { $$ = $1 / $3; printf("divide %d,%d\n",$1,$3);}
     ;
 
 %%
